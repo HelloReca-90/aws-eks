@@ -1,0 +1,49 @@
+variable "region" {
+  default = "us-east-1"
+  description = "AWS region"
+}
+
+variable "vpc_id" {
+  type = "string"
+  description = "VPC que será utilizada"
+  default = "vpc-id"
+} 
+
+variable "subnet_ids" {
+  type = "string"
+  description = "subnets que serão utilizadas"
+  default = list (
+    subnet-id-1,
+    subnet-id-2,
+    subnet-id-3,
+    subnet-id-4
+    )
+}
+
+variable "inst_ami" {
+  type = "string"
+  description = "ami que será utilizado"
+  default = "ami-0a99721a12001ebd4"
+}
+
+variable "inst_type" {
+  type = "string"
+  description = "Familia da instância"
+  default = "t3.xlarge"
+}
+
+variable "inst_key" {
+  type = "string"
+  description = "Chave que deve ser utilizada"
+  default = "xx"
+}
+
+variable "tags" {
+  type        = "map"
+  description = "Tags a serem aplicadas à nossa instância."
+  default = {
+    "app" = "xx"
+    "department" = "xxx"
+    "provider by" = "Terraform"
+  }
+}
