@@ -33,16 +33,13 @@ resource "aws_eks_node_group" "teste1" {
   node_group_name = "Teste"
   node_role_arn   = aws_iam_role.nodes.arn
 
-  subnet_ids = [
-    var.subnet_ids
-  ]
+  subnet_ids = var.subnet_ids
 
   capacity_type  = "ON_DEMAND"
   instance_types = var.inst_type
-  ami            = var.inst_ami
-  BootstrapArguments = "--kubelet-extra-args '--allowed-unsafe-sysctls fs.mqueue.*,kernel.msg*,kernel.shm*,kernel.sem*'"
-  key_name = var.inst_key
-  tags = var.tags
+  #BootstrapArguments = "--kubelet-extra-args '--allowed-unsafe-sysctls fs.mqueue.*,kernel.msg*,kernel.shm*,kernel.sem*'"
+  # key_name = var.inst_key
+  tags = var.default_tags
  
   scaling_config {
     desired_size = 2
