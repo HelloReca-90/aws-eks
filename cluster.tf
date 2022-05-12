@@ -39,4 +39,6 @@ resource "aws_eks_cluster" "teste" {
     aws_iam_role_policy_attachment.eks-terraform-AmazonEKSClusterPolicy,
     aws_iam_role_policy_attachment.eks-terraform-AmazonEKSServicePolicy
     ]
+
+  tags = var.default_tags
 }
